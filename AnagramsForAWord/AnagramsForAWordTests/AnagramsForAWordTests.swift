@@ -5,6 +5,7 @@
 //  Created by Ashley Barrett on 16/04/2016.
 //  Copyright © 2016 Ashley Barrett. All rights reserved.
 //
+//  My attempt to solve this problem: http://www.blackrabbitcoder.net/archive/2015/07/28/little-puzzlersndashlist-all-anagrams-for-a-word.aspx
 
 import XCTest
 
