@@ -8,8 +8,8 @@
 
 import Foundation
 
-public class BinarySearchTree{
-    public func isValid(bst: Node) -> Bool{
+public class BinarySearchTree {
+    public func isValid(bst: Node) -> Bool {
         return false
     }
 }
