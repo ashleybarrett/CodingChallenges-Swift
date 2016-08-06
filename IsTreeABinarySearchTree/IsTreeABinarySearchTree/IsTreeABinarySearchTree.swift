@@ -10,6 +10,30 @@ import Foundation
 
 public class BinarySearchTree {
     public func isValid(bst: Node) -> Bool {
-        return false
+        return
+            self.isBranchValid(bst, isLeft: true, rootValue: bst.value, isLeftOfRoot: true) &&
+            self.isBranchValid(bst, isLeft: false, rootValue: bst.value, isLeftOfRoot: true) &&
+            self.isBranchValid(bst, isLeft: true, rootValue: bst.value, isLeftOfRoot: false) &&
+            self.isBranchValid(bst, isLeft: false, rootValue: bst.value, isLeftOfRoot: false)
+    }
+    
+    private func isBranchValid(node: Node, isLeft: Bool, rootValue: Int, isLeftOfRoot: Bool) -> Bool {
+        var isValid = false
+        let branch = isLeft ? node.left : node.right
+        
+        if let branch = branch {
+            isValid =
+                (isLeft ? branch.value < node.value : branch.value >= node.value) &&
+                (isLeftOfRoot ? branch.value < rootValue : branch.value >= rootValue)
+            
+            if isValid {
+                isValid = self.isBranchValid(branch, isLeft: isLeft, rootValue: rootValue, isLeftOfRoot: isLeftOfRoot)
+            }
+        }
+        else {
+            isValid = true
+        }
+        
+        return isValid
     }
 }
